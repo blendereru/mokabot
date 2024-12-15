@@ -11,7 +11,7 @@ public static class Bot
         {
             return Client;
         }
-        Client = new TelegramBotClient("7430714529:AAH58S0YLzGIFUvvyWJl8clSkL18MIjURt8");
+        Client = new TelegramBotClient("your_token");
         return Client;
     }
 }
