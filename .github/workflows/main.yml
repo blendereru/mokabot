@@ -1,4 +1,4 @@
-name: 'Test the custom action created'
+name: 'Test the custom action'
 on:
   push:
     branches:
@@ -9,11 +9,11 @@ on:
 jobs:
   test-job:
     runs-on: ubuntu-latest
-    name: a job we created
+    name: Test the custom action
     steps:
-      - name: Print time action step
+      - name: Run custom action
         id: time
-        uses: blendereru/mokabot@v2
+        uses: ./ # Use your custom action
 
       - name: Use the time output
-        run: echo "The current time is: ${{ steps.time.outputs.date_time }}"
+        run: echo "${{ steps.time.outputs.date_time }}"
