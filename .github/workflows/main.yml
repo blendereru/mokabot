@@ -1,0 +1,19 @@
+name: 'Test the custom action created'
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+    name: a job we created
+    steps:
+      - name: Print time action step
+        id: time
+        uses: ./
+
+      - name: Use the time output
+        run: echo "The current time is: ${{ steps.time.outputs.date_time }}"
