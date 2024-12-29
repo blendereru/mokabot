@@ -1,14 +1,13 @@
-using MokaBot.Models;
-using Telegram.Bot;
+﻿using System;
 
-var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddControllers().AddNewtonsoftJson();
-builder.Services.AddSingleton<UpdateDistributor>();
-var app = builder.Build();
-using var scope = app.Services.CreateScope();
-var bot = Bot.GetTelegramBot();
-await bot.SetWebhookAsync(builder.Configuration["ngrok:Connection"]!);
-app.UseHttpsRedirection();
-app.UseAuthorization();
-app.MapControllers();
-app.Run();
+class Program
+{
+    static void Main()
+    {
+        // Get the current date and time in ISO 8601 format
+        string currentTime = DateTime.UtcNow.ToString("o");
+
+        // Emit the output for GitHub Actions
+        Console.WriteLine($"::set-output name=date_time::{currentTime}");
+    }
+}

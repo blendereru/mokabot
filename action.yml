@@ -1,0 +1,8 @@
+name: 'Custom action spec'
+description: 'Sample action for testing purposes'
+outputs:
+  date_time:
+    description: 'The date and time that is printed out'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
