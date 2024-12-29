@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Print time action step
         id: time
-        uses: ./
+        uses: blendereru/mokabot@v2
 
       - name: Use the time output
         run: echo "The current time is: ${{ steps.time.outputs.date_time }}"
