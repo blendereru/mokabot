@@ -11,9 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     name: Test the custom action
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
       - name: Run custom action
         id: time
-        uses: ./ # Use your custom action
+        uses: ./ # Use the custom action in the repository
 
       - name: Use the time output
         run: echo "${{ steps.time.outputs.date_time }}"
